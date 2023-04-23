@@ -1,4 +1,4 @@
-from rest_framework import viewsets, status, permissions
+from rest_framework import permissions, status, viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 
@@ -11,7 +11,7 @@ class LicenseViewSet(viewsets.ModelViewSet):
     serializer_class = LicenseSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
-    allowed_methods = ['GET', 'PUT', 'POST', 'DELETE']
+    allowed_methods = ["GET", "PUT", "POST", "DELETE"]
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
