@@ -35,7 +35,7 @@ class AssetViewSetTestCase(APITestCase):
         self.user = User.objects.create_superuser(
             username='testuser',
             password='testpass',
-            email='testuser@example.com',
+            email='testuser@acme.com',
         )
         self.asset = Asset.objects.create(
             brand='testbrand',
