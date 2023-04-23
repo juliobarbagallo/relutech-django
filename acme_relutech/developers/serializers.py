@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import Developer
 from assets.models import Asset
 
 class AssetSerializer(serializers.ModelSerializer):
@@ -8,9 +8,9 @@ class AssetSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class UserSerializer(serializers.ModelSerializer):
+class DeveloperSerializer(serializers.ModelSerializer):
     assets = AssetSerializer(many=True, read_only=True)
 
     class Meta:
-        model = User
+        model = Developer
         fields = '__all__'
