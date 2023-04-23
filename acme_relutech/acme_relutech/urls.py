@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/assets/', include('assets.urls')),
     path('api/developers/', include('developers.urls')),
+    path('api/licenses/', include('licenses.urls')),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth')
 ]
