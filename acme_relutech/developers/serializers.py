@@ -5,22 +5,23 @@ from rest_framework import serializers
 from .models import Developer
 
 
-class AssetSerializer(serializers.ModelSerializer):
+class AssetSerializerFD(serializers.ModelSerializer):
     class Meta:
         model = Asset
         fields = "__all__"
 
 
-class LicenseSerializer(serializers.ModelSerializer):
+class LicenseSerializerFD(serializers.ModelSerializer):
     class Meta:
         model = License
         fields = "__all__"
 
 
 class DeveloperSerializer(serializers.ModelSerializer):
-    assets = AssetSerializer(many=True, read_only=True)
-    licenses = LicenseSerializer(many=True, read_only=True)
+    assets = AssetSerializerFD(many=True, read_only=True)
+    licenses = LicenseSerializerFD(many=True, read_only=True)
 
     class Meta:
         model = Developer
         fields = "__all__"
+        ref_name = "DeveloperSerializer"

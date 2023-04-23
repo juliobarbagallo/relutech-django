@@ -9,6 +9,7 @@ djangorestframework = "*"
 isort = "*"
 black = "*"
 pre-commit = "*"
+drf-yasg = "*"
 
 [dev-packages]
 
