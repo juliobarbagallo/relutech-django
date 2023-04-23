@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from rest_framework import viewsets, status, permissions
+from rest_framework import permissions, status, viewsets
 from rest_framework.authentication import TokenAuthentication
-from .models import Asset
-from .serializers import AssetSerializer
 from rest_framework.response import Response
 
+from .models import Asset
+from .serializers import AssetSerializer
 
 
 class AssetViewSet(viewsets.ModelViewSet):
@@ -12,7 +12,7 @@ class AssetViewSet(viewsets.ModelViewSet):
     serializer_class = AssetSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
-    allowed_methods = ['GET', 'PUT', 'POST', 'DELETE']
+    allowed_methods = ["GET", "PUT", "POST", "DELETE"]
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()

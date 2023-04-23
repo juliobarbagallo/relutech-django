@@ -1,10 +1,11 @@
-from django.urls import path, include
+from django.urls import include, path
 from rest_framework import routers
+
 from .views import LicenseViewSet
 
 router = routers.DefaultRouter()
-router.register(r'', LicenseViewSet)
+router.register(r"", LicenseViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path("", include(router.urls)),
 ]
