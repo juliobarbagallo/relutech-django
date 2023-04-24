@@ -1,6 +1,10 @@
 from django.apps import AppConfig
 
 
-class UsersConfig(AppConfig):
+class DevelopersConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "developers"
+
+
+    def ready(self):
+        import developers.signals
