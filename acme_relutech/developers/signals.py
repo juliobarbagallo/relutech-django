@@ -1,4 +1,4 @@
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, pre_delete
 from django.dispatch import receiver
 from django.db import transaction
 
@@ -15,3 +15,9 @@ def deactivate_related_assets_and_licenses(sender, instance, **kwargs):
         if orig.active and not instance.active:
             Asset.objects.filter(assigned_to=instance).update(assigned_to=None)
             License.objects.filter(assigned_to=instance).update(assigned_to=None)
+
+
+@receiver(pre_delete, sender=Developer)
+def unassign_assets(sender, instance, **kwargs):
+    Asset.objects.filter(assigned_to=instance).update(assigned_to=None)
+    License.objects.filter(assigned_to=instance).update(assigned_to=None)
