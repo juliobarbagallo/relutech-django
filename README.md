@@ -29,7 +29,7 @@ pipenv should be installed and we assume docker is installed and running.
 - Clone the project.
 
 ```bash
-git clone git@github.com:juliobarbagallo/koombea.git
+git clone https://github.com/juliobarbagallo/relutech-django.git
 ```
 - Go to the new created directory.
 
